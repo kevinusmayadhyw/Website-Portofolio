@@ -8,28 +8,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('       (prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
 </head>
 <body>
   <!-- Header Start -->
-  <header class = "bg-transparent absolute top-0 left-0 w-full flex items-center z-10 dark:bg-slate-800">
+  <header class = "bg-transparent absolute top-0 left-0 w-full flex items-center z-[9999] dark:bg-slate-800">
     <div class="container">
       <div class="flex items-center justify-between relative">
         <div class="px-4">
           <a href="#about" class="font-pacifico text-transparent text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500 block py-4">Kevinuw</a>
         </div>
-        <div>
-          <nav class="absolute hidden left-56 sm:left-52 md:left-[33rem] lg:left-[44rem] xl:left-[60rem] 2xl:left-[70rem] 3xl:left-[98rem] top-6">
-            <div class="flex items-center px-4">
-              <button class="block absolute right-4" type="button" id="hamburger">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-              </button>
-            </div>
+        <div class="flex items-center px-4">
+          <button class="block absolute right-4 lg:hidden" type="button" id="hamburger">
+            <span class="hamburger-line treansition duration-300 ease-in-out origin-top-left"></span>
+            <span class="hamburger-line treansition duration-300 ease-in-out"></span>
+            <span class="hamburger-line treansition duration-300 ease-in-out origin-bottom-left"></span>
+          </button>
+          <nav class="hidden absolute py-5 top-full bg-white dark:bg-slate-700 shadow-lg rounded-lg max-w-[250px] w-full right-4 lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none dark:lg:bg-slate-800" id="navbar">
             <div class="w-full">
-              <ul class="flex font-amiri text-sm sm:text-xl lg:text-2xl 2xl:text-4xl text-gray-500 dark:text-gray-100">
-                <li class="flex items-center">
-                  <div class="flex mx-2 lg:mx-3 xl:mx-4 2xl:mx-5">
+              <ul class="block lg:flex font-amiri text-sm sm:text-xl lg:text-2xl 2xl:text-4xl text-gray-500 dark:text-gray-100">
+                <li class="group flex items-center">
+                  <div class="py-2 mx-8 flex">
                     <span class="hover:text-sky-400">Light</span>
                     <input type="checkbox" id="mode" class="hidden"/>
                     <label for="mode">
@@ -41,13 +46,13 @@
                   </div>
                 </li>
                 <li class="group hover:text-sky-400">
-                  <a href="#about" class="flex mx-2 lg:mx-3 xl:mx-4 2xl:mx-5">About</a>
+                  <a href="#about" class="py-2 mx-8 flex">About</a>
                 </li>
                 <li class="group hover:text-sky-400">
-                  <a href="#project" class="flex mx-2 lg:mx-3 xl:mx-4 2xl:mx-5">Portofolio</a>
+                  <a href="#project" class="py-2 mx-8 flex">Portofolio</a>
                 </li>
                 <li class="group hover:text-sky-400">
-                  <a href="#contact" class="flex mx-2 lg:mx-3 xl:mx-4 2xl:mx-5">Contact</a>
+                  <a href="#contact" class="py-2 mx-8 flex">Contact</a>
                 </li>
               </ul>
             </div>
@@ -118,7 +123,8 @@
     <div class="container mx-auto ">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center">
-          <h1 class="pt-4 font-bold text-transparent text-base sm:text-2xl xl:text-3xl 3xl:text-5xl bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500">For More Information</h1>
+          <a class="font-bold text-transparent bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500">Made by Kevin Usmayadhy Wijaya</a>
+          <h1 class="font-bold text-transparent text-base sm:text-2xl xl:text-3xl 3xl:text-5xl bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500">For More Information</h1>
         </div>
         <div class="flex items-center my-6">
           <!-- Instagram -->
@@ -163,7 +169,7 @@
   <!-- Contact End -->
 
   <!-- Bact to top or bottom Start-->
-  <a href="#about" class="fixed bottom-4 right-1/2 z-[9999] h-14 w-14 rounded-full bg-gradient-to-bl from-sky-400 to-blue-500 flex items-center justify-center opacity-80 hover:opacity-100 rotate-180" id="to-bt">
+  <a href="#contact" class="fixed bottom-4 right-4 z-[9999] h-14 w-14 rounded-full bg-gradient-to-bl from-sky-400 to-blue-500 flex items-center justify-center opacity-80 hover:opacity-100 rotate-180" id="to-bt">
     <span class="block animate-pulse">
       <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
 
