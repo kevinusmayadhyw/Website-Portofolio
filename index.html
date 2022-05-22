@@ -8,48 +8,74 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('       (prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
 </head>
 <body>
   <!-- Header Start -->
-  <header class = "bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
+  <header class = "bg-transparent absolute top-0 left-0 w-full flex items-center z-[9999] dark:bg-slate-800">
     <div class="container">
-      <div class="flex items-center">
+      <div class="flex items-center justify-between relative">
         <div class="px-4">
           <a href="#about" class="font-pacifico text-transparent text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500 block py-4">Kevinuw</a>
         </div>
-        <nav class="absolute left-56 sm:left-96 md:left-[33rem] lg:left-[44rem] xl:left-[60rem] 2xl:left-[70rem] 3xl:left-[98rem] top-6">
-          <div class="w-full">
-            <ul class="flex font-amiri text-sm sm:text-xl lg:text-2xl 2xl:text-4xl text-gray-500">
-              <li class="group hover:text-sky-400">
-                <a href="#about" class="flex mx-2 lg:mx-3 xl:mx-4 2xl:mx-5">About</a>
-              </li>
-              <li class="group hover:text-sky-400">
-                <a href="#project" class="flex mx-2 lg:mx-3 xl:mx-4 2xl:mx-5">Portofolio</a>
-              </li>
-              <li class="group hover:text-sky-400">
-                <a href="#contact" class="flex mx-2 lg:mx-3 xl:mx-4 2xl:mx-5">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <div class="flex items-center px-4">
+          <button class="block absolute right-4 lg:hidden" type="button" id="hamburger">
+            <span class="hamburger-line treansition duration-300 ease-in-out origin-top-left"></span>
+            <span class="hamburger-line treansition duration-300 ease-in-out"></span>
+            <span class="hamburger-line treansition duration-300 ease-in-out origin-bottom-left"></span>
+          </button>
+          <nav class="hidden absolute py-5 top-full bg-white dark:bg-slate-700 shadow-lg rounded-lg max-w-[250px] w-full right-4 lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none dark:lg:bg-slate-800" id="navbar">
+            <div class="w-full">
+              <ul class="block lg:flex font-amiri text-sm sm:text-xl lg:text-2xl 2xl:text-4xl text-gray-500 dark:text-gray-100">
+                <li class="group flex items-center">
+                  <div class="py-2 mx-8 flex">
+                    <span class="hover:text-sky-400">Light</span>
+                    <input type="checkbox" id="mode" class="hidden"/>
+                    <label for="mode">
+                      <div class="w-9 h-5 bg-gray-500 rounded-full flex items-center p-0.5 cursor-pointer">
+                        <div class="w-4 h-4 rounded-full bg-white mode-toggle transition duration-500 ease-in-out"></div>
+                      </div>
+                    </label>
+                    <span class="hover:text-sky-400">Dark</span>
+                  </div>
+                </li>
+                <li class="group hover:text-sky-400">
+                  <a href="#about" class="py-2 mx-8 flex">About</a>
+                </li>
+                <li class="group hover:text-sky-400">
+                  <a href="#project" class="py-2 mx-8 flex">Portofolio</a>
+                </li>
+                <li class="group hover:text-sky-400">
+                  <a href="#contact" class="py-2 mx-8 flex">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
     </div>
   </header>
   <!-- Header End-->
 
   <!-- About Me Start -->
-  <section class="pt-16 sm:pt-20" id="about">
+  <section class="pt-16 sm:pt-20 dark:bg-slate-800" id="about">
     <div class="container">
       <div class="flex flex-wrap">
         <div class="w-full self-center px-4 font-amiri md:w-1/2">
           <h1 class="text-base sm:text-2xl xl:text-5xl 3xl:text-6xl"> <a class="font-bold text-transparent lg:text-4xl bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500"> Hello everyone, </a>👋<br> 
             <a class="font-bold text-transparent lg:text-3xl bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500"> My name is Kevin Usmayadhy Wijaya </a> </h1>
-          <h2 class="text-sm sm:text-lg lg:text-2xl 3xl:text-4xl text-gray-500"> I'm an informatics student at Telkom University</h2>
+          <h2 class="text-sm sm:text-lg lg:text-2xl 3xl:text-4xl text-gray-500 dark:text-gray-300"> I'm an informatics student at Telkom University</h2>
         </div>
         <div class="w-full self-end md:w-1/2">
           <div class="relative">
-            <img src="dist/img/Photo.png" alt="Photo" class="max-w-full mc-auto mx-auto">
-            <span class="absolute bottom-56 left-1/2 -translate-x-28 -z-10 mx-auto ">
+            <img src="dist/img/Photo.png" alt="Photo" class="max-w-full mc-auto mx-auto relative z-10">
+            <span class="absolute bottom-56 left-1/2 -translate-x-28 mx-auto ">
               <svg width="325" heigth="325" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="fill-sky-500">
                 <path d="M40.8,-70.3C54.3,-62.7,67.9,-54.9,66.9,-43.1C65.9,-31.4,50.3,-15.7,49.1,-0.7C48,14.3,61.2,28.7,63.3,42.3C65.4,55.9,56.3,68.9,43.9,73.6C31.5,78.4,15.7,75,4.5,67.2C-6.7,59.4,-13.5,47.2,-23.9,41.3C-34.3,35.4,-48.5,35.8,-59.4,29.9C-70.3,24.1,-77.9,12.1,-73.9,2.3C-69.8,-7.4,-54,-14.7,-44.8,-23.5C-35.6,-32.2,-32.9,-42.3,-26.6,-54.1C-20.2,-65.8,-10.1,-79.1,1.7,-82.1C13.6,-85.2,27.2,-77.9,40.8,-70.3Z" transform="translate(100 100)" />
               </svg>
@@ -62,12 +88,12 @@
   <!-- About Me End -->
   
   <!-- Portofolio Start -->
-  <section class="pb-16 bg-slate-100" id="project">
+  <section class="pb-16 bg-slate-100 dark:bg-slate-700" id="project">
     <div class="container mx-auto">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center">
           <h4 class="pt-4 font-bold text-transparent text-base sm:text-2xl xl:text-5xl 3xl:text-6xl bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500">Portofolio</h4>
-          <h2 class="font-bold text-transparent text-xl sm:text-4xl lg:text-5xl xl:text-6xl 3xl:text-7xl text-black">Project Terbaru</h2>
+          <h2 class="font-bold text-transparent text-xl sm:text-4xl lg:text-5xl xl:text-6xl 3xl:text-7xl text-black dark:text-gray-50">Project Terbaru</h2>
         </div>
       </div>
       <div class="w-full px-4 flex flex-wrap justify-center">
@@ -76,16 +102,16 @@
           <div class="rounded-md shadow-md overflow-hidden pt-16"> 
             <img src="dist/img/ex.png" alt="Project" width="w-full">
           </div>
-          <h3 class="font-bold text-transparent text-xl sm:text-2xl lg:text-3xl xl:text-4xl 3xl:text-5xl text-black pt-4"> Project 1 </h3>
-          <p class="text-sm sm:text-lg lg:text-2xl 3xl:text-4xl text-gray-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis labore animi earum illum ipsum soluta neque dolorem vel, tempore pariatur non! Cumque dicta molestias rerum. Vero deleniti eum cumque alias.</p>
+          <h3 class="font-bold text-transparent text-xl sm:text-2xl lg:text-3xl xl:text-4xl 3xl:text-5xl text-black pt-4 dark:text-gray-50"> Project 1 </h3>
+          <p class="text-sm sm:text-lg lg:text-2xl 3xl:text-4xl text-gray-500 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis labore animi earum illum ipsum soluta neque dolorem vel, tempore pariatur non! Cumque dicta molestias rerum. Vero deleniti eum cumque alias.</p>
         </div>
         <!-- Project 2 -->
         <div class="mb-12 p-4 md:w-1/2">
           <div class="rounded-md shadow-md overflow-hidden pt-16"> 
             <img src="dist/img/ex.png" alt="Project" width="w-full">
           </div>
-          <h3 class="font-bold text-transparent text-xl sm:text-2xl lg:text-3xl xl:text-4xl 3xl:text-5xl text-black pt-4"> Project 2 </h3>
-          <p class="text-sm sm:text-lg lg:text-2xl 3xl:text-4xl text-gray-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis labore animi earum illum ipsum soluta neque dolorem vel, tempore pariatur non! Cumque dicta molestias rerum. Vero deleniti eum cumque alias.</p>
+          <h3 class="font-bold text-transparent text-xl sm:text-2xl lg:text-3xl xl:text-4xl 3xl:text-5xl text-black pt-4 dark:text-gray-50"> Project 2 </h3>
+          <p class="text-sm sm:text-lg lg:text-2xl 3xl:text-4xl text-gray-500 dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis labore animi earum illum ipsum soluta neque dolorem vel, tempore pariatur non! Cumque dicta molestias rerum. Vero deleniti eum cumque alias.</p>
         </div>       
       </div>
     </div>
@@ -93,11 +119,12 @@
   <!-- Portofolio End -->
 
   <!-- Contact Start -->
-  <section class="pb-16" id="contact">
-    <div class="container mx-auto">
+  <section class="pb-16 dark:bg-slate-800" id="contact">
+    <div class="container mx-auto ">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center">
-          <h1 class="pt-4 font-bold text-transparent text-base sm:text-2xl xl:text-3xl 3xl:text-5xl bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500">For More Information</h1>
+          <a class="font-bold text-transparent bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500">Made by Kevin Usmayadhy Wijaya</a>
+          <h1 class="font-bold text-transparent text-base sm:text-2xl xl:text-3xl 3xl:text-5xl bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-500">For More Information</h1>
         </div>
         <div class="flex items-center my-6">
           <!-- Instagram -->
@@ -132,7 +159,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
             width="75" height="75"
             viewBox="0 0 48 48"
-            style=" fill:#000000;" class="fill-current"><path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"></path><path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"></path><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"></polygon><path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"></path><path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z"></path></svg>
+            style="fill:#000000;" class="fill-current"><path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"></path><path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"></path><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"></polygon><path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"></path><path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z"></path></svg>
           </a>
         </div>
       </div>
@@ -140,5 +167,28 @@
 
   </section>
   <!-- Contact End -->
+
+  <!-- Bact to top or bottom Start-->
+  <a href="#contact" class="fixed bottom-4 right-4 z-[9999] h-14 w-14 rounded-full bg-gradient-to-bl from-sky-400 to-blue-500 flex items-center justify-center opacity-80 hover:opacity-100 rotate-180" id="to-bt">
+    <span class="block animate-pulse">
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+
+        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="white" stroke="none">
+        <path d="M2495 4786 c-45 -21 -1589 -1572 -1613 -1621 -98 -197 -50 -421 118
+        -554 70 -56 148 -83 250 -88 94 -6 174 15 253 63 23 15 270 254 549 532 l508
+        506 522 -520 c574 -572 570 -568 716 -594 187 -34 381 71 466 250 29 61 31 72
+        31 180 0 201 67 119 -849 1039 -461 462 -804 799 -823 807 -40 17 -89 17 -128
+        0z"></path>
+        <path d="M2495 2601 c-53 -25 -1602 -1576 -1638 -1641 -124 -221 -38 -501 188
+        -610 120 -58 250 -60 377 -4 58 25 104 68 601 563 l537 536 523 -525 c469
+        -472 529 -528 587 -557 224 -109 481 -22 591 202 33 67 34 74 34 185 0 113 -1
+        118 -37 191 -35 70 -76 113 -815 858 -550 554 -790 790 -818 802 -51 23 -80
+        23 -130 0z"></path>
+        </g>
+        </svg>
+    </span>
+  </a>
+  <!-- Bact to top or bottom End-->
+  <script src="/dist/js/script.js"></script>
 </body>
 </html>
